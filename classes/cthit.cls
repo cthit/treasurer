@@ -21,7 +21,6 @@
 
 \LoadClass[11pt, a4paper]{article}
 
-\RequirePackage[quiet]{fontspec}
 \RequirePackage{parskip}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}

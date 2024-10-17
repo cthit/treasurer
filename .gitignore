@@ -307,3 +307,6 @@ TSWLatexianTemp*
 
 # Output files
 *.pdf
+
+# Re-include all images
+!images/*

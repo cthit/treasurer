@@ -14,7 +14,7 @@ Dokument som är avsedda att skrivas ut och fyllas i för hand.
 Dokument som är avsedda att fyllas i eller redigeras digitalt för att skrivas ut eller skickas digitalt.
 
 - [Faktura](/dokumentmallar/faktura-mall.tex) - Mall för att skicka en faktura. Mer info på [wikin](https://wiki.chalmers.it/Kass%C3%B6r:_101#Skicka_faktura).
-- [Internfordran](/dokumentmallar/internfodran-mall.tex) - Mall för att skicka en internfordran. Mer info på [wikin](https://wiki.chalmers.it/Kass%C3%B6r:_101#Skicka_internfordran).
+- [Internfordran](/dokumentmallar/internfordran-mall.tex) - Mall för att skicka en internfordran. Mer info på [wikin](https://wiki.chalmers.it/Kass%C3%B6r:_101#Skicka_internfordran).
 
 # Import i Overleaf
 
@@ -26,4 +26,4 @@ För att importera filerna för att använda i Overleaf:
    - Klicka på "New Project" och sedan "Upload Project"
    - Välj zip-filen du laddade ner
    - Overleaf omdirigerar dig automatiskt till projektet
-3. Gå till "Menu" och ställ in "Compiler" till "XeLaTeX" för att kunna kompilera
+3. Done!
