@@ -1,0 +1,144 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage[sc]{mathpazo}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{fp}
+\usepackage{ragged2e}
+\usepackage{longtable}
+
+
+\usepackage{fancybox}
+\usepackage[margin=2cm,top=3cm]{geometry}
+
+\graphicspath{ {images/} }
+
+\newcounter{cnt}
+\setcounter{cnt}{0}
+\def\inc{\stepcounter{cnt}\thecnt}
+\gdef\TotalHT{0}
+\newcommand{\product}[3]{%
+#1 &#2 kr  &#3  &\FPmul\temp{#2}{#3}\FPround\temp{\temp}{2}\temp~kr
+%% Totalize
+\FPadd\total{\TotalHT}{\temp}%
+\FPround\total{\total}{2}%
+\global\let\TotalHT\total%
+\\ }
+\newcommand{\totalttc}{\TotalHT~kr}
+
+\newcommand{\tax}{
+  \FPmul\temp{\TotalHT}{.25}
+  \FPround\temp{\temp}{2}
+  \temp~kr%
+  \FPadd\totaltax{\TotalHT}{\temp}%
+  \FPround\totaltax{\totaltax}{2}%
+  \global\let\TotalHT\totaltax%
+}
+
+
+\begin{document}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[R]{\footnotesize Sida \thepage\ av \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\fboxsep}{1.5em}
+\setlength{\parindent}{0pt}
+\cornersize{.3}
+
+{\includegraphics[height=3\baselineskip]{sektionslogo.png}}
+
+
+
+\fancyput*(230pt,-22pt){\ovalbox{%
+    \begin{minipage}{215pt}
+      \huge Faktura
+    \end{minipage}}}
+
+\fancyput*(230pt,-82pt){\ovalbox{%
+    \begin{minipage}{87pt}
+      \textbf{Fakturanummer:}\\
+      18190001
+    \end{minipage}}}
+
+\fancyput*(358pt,-82pt){\ovalbox{%
+    \begin{minipage}{87pt}
+      \textbf{Fakturadatum:}\\
+      2018-08-24
+    \end{minipage}}}
+
+\vspace{3em}
+\textbf{Fakturaadress:}\\[1em]
+Helena Skoglund\\
+Chalmers Tekniska Högskola\\
+Fakturaservice\\
+412 96 Göteborg\\
+
+%Om man behöver ange leveransaddress
+%\textbf{Leveransaddress:}\\[1em]
+%Första Addressrad\\
+%Andra Addressrad\\
+%Tredje Rad
+
+
+\fancyput*(230pt,-172pt){
+    \begin{minipage}{85pt}
+      \begin{tabular}{ll}
+        \textbf{Referensnummer} & Niklas Broberg\\
+        \textbf{Vår referens} & Omar Oueidat \\
+        \textbf{Förfallodatum} & 2018-09-24\\
+        \textbf{Betalningsvilkor} & 30 dagar
+      \end{tabular}
+    \end{minipage}}
+
+\vspace{8em}
+
+
+\renewcommand\arraystretch{1.5}
+\begin{tabular*}{\linewidth}{p{10.1cm}lcl}\hline\hline
+ \multicolumn{1}{l}{\textbf{Specifikation}} & \multicolumn{1}{l}{\textbf{\`A-pris}} &  \multicolumn{1}{l}{\textbf{Antal}} & \multicolumn{1}{l}{\textbf{Summa}} \\
+\hline
+
+
+
+\product{Pizza till utbildning}{2370}{1}
+\product{Kaffe och Frukt till utbildning}{683.31}{1}
+
+    &&&\\[5em]
+
+    %\multicolumn{4}{r@{~~~}}{\textbf{Moms (25 \%)}} & \tax\\
+    \multicolumn{3}{r@{~~~}}{\textbf{Att betala}} & \totalttc\\
+\hline\hline
+\end{tabular*}\\ \\
+\textit{Ange fakturanummer vid betalning}\\
+\newline
+\newline
+
+
+\renewcommand\arraystretch{1}
+
+\fancyput*(-17pt,-580pt){\ovalbox{%
+    \begin{minipage}{450pt}
+      \small Vid betalning efter förfallodagen tillkommer påminnelseavgift om 50 kr samt 10 \% dröjsmålsränta.
+    \end{minipage}}}
+
+
+\fancyput*(-17pt,-670pt){\mbox{%
+    \begin{minipage}{530pt}
+      \begin{tabularx}{530pt}{XXX}
+      \textbf{Adress:}  & \textbf{Organisationsnummer} & \textbf{E-mail} \\
+      Teknologsektionen Informationsteknik      & 857209-9524       & styrit@chalmers.it \\
+      Teknologgården 2    &                      &  \\
+      412 58~~Göteborg & \textbf{Bankgiro}        &  \\
+                        & 5447-0331       & \\
+      \end{tabularx}
+    \end{minipage}}}
+
+\end{document}
